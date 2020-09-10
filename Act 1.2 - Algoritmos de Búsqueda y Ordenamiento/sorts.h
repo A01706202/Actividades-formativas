@@ -1,7 +1,7 @@
 /*---------------
 Michelle Aylin Calzada Montes
 A01706202
-Act 1.2 Algoritmos de Búsqueda y Ordenamiento
+Act 1.2 Algoritmos de BÃºsqueda y Ordenamiento
 ---------------*/
 
 #ifndef SORTS_H_
@@ -25,7 +25,7 @@ class Sorts {
 		
 	public:
 		vector<T> ordenaSeleccion(const vector<T> &b);
-		vector<T> ordenaBurbuja(const vector<T> &b);
+		void ordenaBurbuja(const vector<T> &b);
 		vector<T> ordenaMerge(const vector<T> &b);
 		int busqSecuencial(const vector<T> &b, int v);	
 		int busqBinaria(const vector<T> &b, int v);
@@ -94,7 +94,7 @@ vector<T> Sorts<T>::ordenaSeleccion(const vector<T> &b) {
 }
 
 template <class T>
-vector<T> Sorts<T>::ordenaBurbuja(const vector<T> &b){
+void Sorts<T>::ordenaBurbuja(const vector<T> &b){
 	vector<T> a(b);
 	for(int i = a.size() - 1; i > 0; i--){
 		for (int j = 0; j < i; j++) {
@@ -104,6 +104,15 @@ vector<T> Sorts<T>::ordenaBurbuja(const vector<T> &b){
 		}
 	}
 	return a;
+}
+
+template <class T>
+vector<T> Sorts::ordenaMerge(const vector<T> &b){
+	vector<T> d(b);
+	vector<T> tm(d.size());
+
+	mergeSplit(d, tm, 0, d.size() - 1);
+	return d;
 }
 
 template <class T>
