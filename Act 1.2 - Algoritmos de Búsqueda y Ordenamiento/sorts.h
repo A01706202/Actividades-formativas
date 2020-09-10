@@ -24,9 +24,9 @@ class Sorts {
 	    void mergeSplit(vector<T> &a, vector<T> &b, int menor, int mayor);
 		
 	public:
-		vector<T> ordenaSeleccion(const vector<T> &b);
+		void ordenaSeleccion(const vector<T> &b);
 		void ordenaBurbuja(const vector<T> &b);
-		vector<T> ordenaMerge(const vector<T> &b);
+		void ordenaMerge(const vector<T> &b);
 		int busqSecuencial(const vector<T> &b, int v);	
 		int busqBinaria(const vector<T> &b, int v);
 };
@@ -75,7 +75,7 @@ void Sorts<T>::mergeArray(vector<T> &a, vector<T> &b, int menor, int mitad, int 
 }
 
 template <class T>
-vector<T> Sorts<T>::ordenaSeleccion(const vector<T> &b) {
+void Sorts<T>::ordenaSeleccion(const vector<T> &b) {
 	vector<T> a(b);
 	int posicion;
 
@@ -107,7 +107,7 @@ void Sorts<T>::ordenaBurbuja(const vector<T> &b){
 }
 
 template <class T>
-vector<T> Sorts::ordenaMerge(const vector<T> &b){
+void Sorts::ordenaMerge(const vector<T> &b){
 	vector<T> d(b);
 	vector<T> tm(d.size());
 
