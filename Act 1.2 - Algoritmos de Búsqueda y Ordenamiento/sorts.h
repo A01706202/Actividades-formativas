@@ -121,7 +121,7 @@ int Sorts<T>::busqSecuencial(const vector<T> &b , int v){
     int tam = k.size();
 	for (int i = 0; i < tam; i++) {
 		if (v == b[i]) {
-			return b[i];
+			return i;
 		}
 	}
 	return -1;
