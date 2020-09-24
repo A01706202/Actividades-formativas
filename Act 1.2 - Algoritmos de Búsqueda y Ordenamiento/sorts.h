@@ -90,7 +90,6 @@ void Sorts<T>::ordenaSeleccion(const vector<T> &b) {
 			swap(a, i, posicion);
 		}
 	}
-	return a;
 }
 
 template <class T>
@@ -103,7 +102,6 @@ void Sorts<T>::ordenaBurbuja(const vector<T> &b){
 			}
 		}
 	}
-	return a;
 }
 
 template <class T>
@@ -112,7 +110,6 @@ void Sorts::ordenaMerge(const vector<T> &b){
 	vector<T> tm(d.size());
 
 	mergeSplit(d, tm, 0, d.size() - 1);
-	return d;
 }
 
 template <class T>
