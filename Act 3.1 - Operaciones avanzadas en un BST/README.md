@@ -3,7 +3,7 @@
 
 La funcion visit es de orden O(n), ya que se hace el recorrido de manera lineal
 
-La funcion height es de orden O(0), ya que solo se necesita un paso para mostrar la profundidad del arbol
+La funcion height es de orden O(n), ya que recorre el arbol para saber la profundidad
 
 La funcion add es de orden O(n), ya que se tiene que recorrer el arbol de una manera lineal para poner el dato
 
