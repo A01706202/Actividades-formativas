@@ -1,12 +1,12 @@
-*Complejidad del algoritmo*
+*Analisis de complejidad*
 ---------------------------------
 
-Push
+La funcion Push es de complejidad 
 
-Pop
+La funcion Pop es de complejidad 
 
-Top
+La funcion Top es de complejidad 
 
-Empty
+La funcion Empty es de complejidad 
 
-Size
+La funcion Size es de complejidad 
