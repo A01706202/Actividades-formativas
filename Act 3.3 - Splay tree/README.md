@@ -1,4 +1,4 @@
-*Analisis de complejidad*
+*Análisis de complejidad*
 --------------------------
 
 La funcion add es de complejidad O(log(n)), ya que hace divisiones en el arbol para agregar el dato
