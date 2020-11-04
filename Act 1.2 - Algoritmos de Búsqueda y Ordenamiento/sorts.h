@@ -6,117 +6,90 @@ Act 1.2 Algoritmos de Búsqueda y Ordenamiento
 
 #ifndef SORTS_H_
 #define SORTS_H_
-#include <iostream>
-#include <string>
-#include <sstream>
+
 #include <vector>
-#include <cstring>
-#include <string>
+#include <list>
 
 using namespace std;
 
 template <class T>
 class Sorts {
 	private:
-		void swap(vector<T>&, int i, int j);
-		void copyArray(vector<T> &a, vector<T> &b, int menor, int mayor);
-    	void mergeArray(vector<T> &a, vector<T> &b, int menor, int mitad, int mayor);
-	    void mergeSplit(vector<T> &a, vector<T> &b, int menor, int mayor);
-		
+		void swap(vector<T>&, int, int);
+		void copyArray(vector<T>&, vector<T>&, int, int);
+		void mergeArray(vector<T>&, vector<T>&, int, int, int);
+		void mergeSplit(vector<T>&, vector<T>&, int, int);
+
 	public:
-		void ordenaSeleccion(const vector<T> &b);
-		void ordenaBurbuja(const vector<T> &b);
-		void ordenaMerge(const vector<T> &b);
-		int busqSecuencial(const vector<T> &b, int v);	
-		int busqBinaria(const vector<T> &b, int v);
+		vector<T> ordenaSeleccion(vector<T>&);
+    		vector<T> ordenaBurbuja(vector<T>&);
+		vector<T> ordenaMerge(vector<T>&);
+		int busqSecuencial(vector<T>&, int);
+		int busqBinaria(vector<T>&, int);
 };
 
+
 template <class T>
-void Sorts<T>::swap(vector<T> &v, int i, int j) {
-	T aux = v[i];
-	v[i] = v[j];
-	v[j] = aux;
+void Sorts<T>::swap(vector<T> &b, int i, int j) {
+	T aux = b[i];
+	b[i] = b[j];
+	b[j] = aux;
 }
 
 template <class T>
-void Sorts<T>::copyArray(vector<T> &a, vector<T> &b, int menor, int mayor) {
-	for (int i = menor; i <= mayor; i++) {
-		a[i] = b[i];
-	}
-}
-
-template <class T>
-void Sorts<T>::mergeArray(vector<T> &a, vector<T> &b, int menor, int mitad, int mayor) {
-	int i, j, l;
-
-	i = menor;
-	j = mitad + 1;
-	l = menor;
-
-	while (i <= mitad && j <= mayor) {
-		if (a[i] < a[j]) {
-			b[l] = a[i];
-			i++;
-		} else {
-			b[l] = a[j];
-			j++;
-		}
-		l++;
-	}
-	if (i > mitad) {
-		for (; j <= mayor; j++) {
-			b[l++] = a[j];
-		}
-	} else {
-		for (; i <= mitad; i++) {
-			b[l++]=a[i];
-		}
-	}
-}
-
-template <class T>
-void Sorts<T>::ordenaSeleccion(const vector<T> &b) {
-	vector<T> a(b);
-	int posicion;
-
-	for (int i = a.size() - 1; i > 0; i--) {
-		posicion = 0;
-		for (int j = 1; j <= i; j++) {
-			if (a[j] > a[posicion]) {
-				posicion = j;
+vector<T> Sorts<T>::ordenaSeleccion(vector<T> &b) {
+    int pos;
+    for (int i = 0; i < b.size(); i++) {
+        pos = i;
+		for (int j = i + 1; j < b.size(); j++) {
+			if (b[j] < b[pos]) {
+				pos = j;
 			}
 		}
-		if (posicion!=i) {
-			swap(a, i, posicion);
-		}
+        if(pos != i){
+            swap(b, i, pos);
+        }
 	}
+	return b;
 }
 
 template <class T>
-void Sorts<T>::ordenaBurbuja(const vector<T> &b){
-	vector<T> a(b);
-	for(int i = a.size() - 1; i > 0; i--){
-		for (int j = 0; j < i; j++) {
-			if (a[j] > a[j + 1]) {
-				swap(a, j, j + 1);
+vector<T> Sorts<T>::ordenaBurbuja(vector<T> &b) {
+	int pos;
+    for (int i = 0; i < b.size(); i++) {
+        pos = i;
+		for (int j = i + 1; j < b.size(); j++) {
+			if (b[j] < b[pos]){
+				pos = j;
 			}
 		}
+        if(pos != i){
+    		swap(b, i, pos);
+    	}
 	}
+	return b;
 }
 
 template <class T>
-void Sorts::ordenaMerge(const vector<T> &b){
-	vector<T> d(b);
-	vector<T> tm(d.size());
-
-	mergeSplit(d, tm, 0, d.size() - 1);
+vector<T> Sorts<T>:: ordenaMerge(vector<T> &b) {
+	int pos;
+   	for (int i = 0; i < b.size(); i++) {
+    		pos = i;
+		for (int j = i + 1; j < b.size(); j++) {
+			if (b[j] < b[pos]){
+				pos = j;
+			}
+		}
+    if(pos != i){
+    	swap(b, i, pos);
+    	}
+	}
+	return b;
 }
 
 template <class T>
-int Sorts<T>::busqSecuencial(const vector<T> &b , int v){
-    vector<T> k(b);
-    int tam = k.size();
-	for (int i = 0; i < tam; i++) {
+int Sorts<T>::busqSecuencial(vector<T> &b , int v){
+	for (int i = 0; i < b.size(); i++) {
 		if (v == b[i]) {
 			return i;
 		}
@@ -125,12 +98,10 @@ int Sorts<T>::busqSecuencial(const vector<T> &b , int v){
 }
 
 template <class T>
-int Sorts<T>::busqBinaria(const vector<T> &b, int v){
-    vector<T> i(b);
-    int tam = i.size();
+int Sorts<T>::busqBinaria(vector<T> &b, int v){
 	int mitad;
 	int menor = 0;
-	int mayor = tam - 1;
+	int mayor = b.size() - 1;
 
 	while (menor < mayor) {
 		mitad = (mayor + menor) / 2;
