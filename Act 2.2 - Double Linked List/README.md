@@ -7,4 +7,4 @@ El find sería de complejidad O(n), ya que tiene que recorrer la lista de manera
 
 El update sería de complejidad O(n), ya que tiene que recorrer la lista de manera lineas para encontrar cambiar el valor en la posición dada.
 
-El remove sería de complejidad O(1), ya que solo quita el elemento de la lista directamente.
+El remove sería de complejidad O(n), ya que recorre la lista de manera lineal para encontrar y quitar el dato
