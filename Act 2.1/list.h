@@ -157,18 +157,7 @@ void List<T>::update(T pos,T val){
 
 template <class T>
 T List<T>::remove(T pos){
-	int i = 0;
-	Link<T> *p;
-	
-	p = head;
-	while (p != 0){
-		if (i == pos){
-			delete *p;	
-		}
-		p = p->next;
-		i++;
-	}
-	size--;
+	return -1;
 }
 
 #endif
