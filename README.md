@@ -8,3 +8,5 @@ Act 2.1: Se corrigió el list.h para que pudiera correr y probar los casos de pr
 Act 2.2: Se corrigió el análisis de complejidad de la función remove a uno correcto
 
 Act 3.2: Se corrigió el análisis de complejidad de la función empty a uno correcto
+
+Act 4.1: Se corrigió el análisis de complejidad
