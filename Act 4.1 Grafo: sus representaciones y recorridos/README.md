@@ -1,10 +1,10 @@
 *Análisis de complejidad*
 -------------------------
 
-loadGraphMat: Es de complejidad O(n^2) porque tiene que llenar la matriz
+loadGraphMat: Es de complejidad O(n) porque tiene que llenar la matriz de manera lineal
 
-loadGraphList: Es de complejidad O(n) porque tiene que llenar la lista
+loadGraphList: Es de complejidad O(n) porque tiene que llenar la lista de manera lineal
 
-DFS: Es de complejidad O(n^4) por los cuatro ciclos que implica
+DFS: Es de complejidad O(n) por los recorridos de los puntos de manera lineal
 
-BFS: Es de complejidad O(n+a)  por el recorrido de los puntos que maneja
+BFS: Es de complejidad O(n)  por el recorrido de los puntos que maneja de forma lineal
